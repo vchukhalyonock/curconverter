@@ -2,8 +2,8 @@
 
 namespace App\Providers;
 
-use Interfaces\IProvider;
-use Interfaces\IRequest;
+use App\Interfaces\IProvider;
+use App\Interfaces\IRequest;
 
 class Fixer implements IProvider {
 
@@ -17,7 +17,7 @@ class Fixer implements IProvider {
     public function getRate($currency1, $currency2) {
         try {
             $response = $this->_request->getData(
-                self::ENDPOINT,
+                self::ENDPOINT . '?access_key=' . getenv('FIXER_API_KEY'),
                 IRequest::METHOD_GET,
                 [
                     "base" => $currency1,
@@ -27,6 +27,8 @@ class Fixer implements IProvider {
         } catch (\Exception $e) {
             throw new \Exception("Cannot get RATE:" . $e->getMessage());
         }
+
+        var_dump($response);
 
         return $response;
     }

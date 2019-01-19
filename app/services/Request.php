@@ -1,9 +1,9 @@
 <?php
 
-namespace Services;
+namespace App\Services;
 
 use Curl\Curl;
-use Interfaces\IRequest;
+use App\Interfaces\IRequest;
 
 /**
  * Class Request
