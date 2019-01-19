@@ -7,7 +7,7 @@ use App\Interfaces\IRequest;
 
 class Fixer implements IProvider {
 
-    const ENDPOINT = 'http://data.fixer.io/api/';
+    const ENDPOINT = 'http://data.fixer.io/api/latest';
     private $_request;
 
     public function __construct(IRequest $request) {
@@ -17,11 +17,11 @@ class Fixer implements IProvider {
     public function getRate($currency1, $currency2) {
         try {
             $response = $this->_request->getData(
-                self::ENDPOINT . '?access_key=' . getenv('FIXER_API_KEY'),
+                self::ENDPOINT,
                 IRequest::METHOD_GET,
                 [
-                    "base" => $currency1,
-                    "symbols" => $currency2
+                    "access_key" => getenv('FIXER_API_KEY'),
+                    "symbols" => $currency1 . "," . $currency2
                 ]
             );
         } catch (\Exception $e) {

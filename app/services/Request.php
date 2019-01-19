@@ -31,7 +31,7 @@ class Request implements IRequest {
      * @throws \Exception
      */
     public function getData($endpoint, $method, array $data = array()) {
-        switch ($endpoint) {
+        switch ($method) {
             case self::METHOD_GET:
             default:
                 $this->_get($endpoint, $data);
@@ -58,7 +58,7 @@ class Request implements IRequest {
      * @param array $data
      */
     private function _post($endpoint, array $data = array()) {
-        $this->_curl->get($endpoint, $data);
+        $this->_curl->post($endpoint, $data);
     }
 
 
@@ -67,6 +67,6 @@ class Request implements IRequest {
      * @param array $data
      */
     private function _get($endpoint, array $data = array()) {
-        $this->_curl->post($endpoint, $data);
+        $this->_curl->get($endpoint, $data);
     }
 }
