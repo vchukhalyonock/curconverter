@@ -22,7 +22,6 @@ class CurrencyConverter implements ICurrencyConverter {
             $provider = CourseImportAdapter::getProvider(getenv('RATE_PROVIDER'));
         } catch (\Exception $e) {
             $response['error'] = $e->getMessage();
-            var_dump($response);
             return $response;
         }
 
@@ -30,7 +29,6 @@ class CurrencyConverter implements ICurrencyConverter {
             $rate = $provider->getRate($currency1, $currency2);
         } catch (\Exception $e) {
             $response['error'] = $e->getMessage();
-            var_dump($response);
             return $response;
         }
 

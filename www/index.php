@@ -13,3 +13,5 @@ $result = \App\CurrencyConverter::convert(
     getenv('CURRENCY2'),
     100
 );
+
+var_dump($result);
