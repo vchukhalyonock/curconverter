@@ -14,10 +14,11 @@ class App extends Controller {
     }
 
     public function ajax() {
+        $json = json_decode(file_get_contents('php://input'));
         $result = CurrencyConverter::convert(
             getenv('CURRENCY1'),
             getenv('CURRENCY2'),
-            100
+            $json->value
         );
         return $this->jsonResponse($result);
     }

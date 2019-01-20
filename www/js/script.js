@@ -7,9 +7,9 @@ $(document).ready(() => {
         $('#convertButton').click(() => {
             $.ajax({
                 contentType: 'application/json',
-                data: {
+                data: JSON.stringify({
                     value: $('#inputUSD').val()
-                },
+                }),
                 dataType: 'json',
                 method: 'post',
                 url: '/index.php',
