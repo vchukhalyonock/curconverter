@@ -14,7 +14,7 @@ $(document).ready(() => {
                 method: 'post',
                 url: '/index.php',
                 success: (data) => {
-                    $('#outputRMB').value(data.result);
+                    $('#outputRMB').val(data.result);
                 }
             });
         });
