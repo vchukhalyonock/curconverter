@@ -2,17 +2,11 @@
 
 namespace App\Providers;
 
-use App\Interfaces\IProvider;
 use App\Interfaces\IRequest;
 
-class Openexchangerates implements IProvider {
+class Openexchangerates extends Provider {
 
     const ENDPOINT = 'http://openexchangerates.org/api/latest.json';
-    private $_request;
-
-    public function __construct(IRequest $request) {
-        $this->_request = $request;
-    }
 
     public function getRate($currency1, $currency2) {
         $currency1Rate = 0;
@@ -40,7 +34,7 @@ class Openexchangerates implements IProvider {
     }
 
 
-    private function _getResponse($currency1, $currency2) {
+    private function _getResponse() {
         try {
             $response = $this->_request->getData(
                 self::ENDPOINT,

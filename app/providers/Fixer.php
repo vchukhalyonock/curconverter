@@ -2,17 +2,11 @@
 
 namespace App\Providers;
 
-use App\Interfaces\IProvider;
 use App\Interfaces\IRequest;
 
-class Fixer implements IProvider {
+class Fixer extends Provider {
 
     const ENDPOINT = 'http://data.fixer.io/api/latest';
-    private $_request;
-
-    public function __construct(IRequest $request) {
-        $this->_request = $request;
-    }
 
     public function getRate($currency1, $currency2) {
         $currency1Rate = 0;
