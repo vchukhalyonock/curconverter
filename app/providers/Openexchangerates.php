@@ -4,6 +4,11 @@ namespace App\Providers;
 
 use App\Interfaces\IRequest;
 
+/**
+ * Class Openexchangerates
+ * Provide openexchangerates.org service
+ * @package App\Providers
+ */
 class Openexchangerates extends Provider {
 
     const ENDPOINT = 'http://openexchangerates.org/api/latest.json';

@@ -4,6 +4,11 @@ namespace App\Providers;
 
 use App\Interfaces\IRequest;
 
+/**
+ * Class Fixer
+ * Provide fixer.io API service
+ * @package App\Providers
+ */
 class Fixer extends Provider {
 
     const ENDPOINT = 'http://data.fixer.io/api/latest';

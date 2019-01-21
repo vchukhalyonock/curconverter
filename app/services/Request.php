@@ -54,6 +54,7 @@ class Request implements IRequest {
     }
 
     /**
+     * Make POST request
      * @param $endpoint
      * @param array $data
      */
@@ -63,6 +64,7 @@ class Request implements IRequest {
 
 
     /**
+     * Make GET request
      * @param $endpoint
      * @param array $data
      */

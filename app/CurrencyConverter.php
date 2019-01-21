@@ -5,6 +5,10 @@ namespace App;
 use App\Services\CourseImportAdapter;
 use App\Interfaces\ICurrencyConverter;
 
+/**
+ * Class CurrencyConverter
+ * @package App
+ */
 class CurrencyConverter implements ICurrencyConverter {
 
     /**
